@@ -21,8 +21,9 @@ RUN cd Swarm-SLAM &&\
     . /opt/ros/$ROS_DISTRO/setup.sh &&\
     colcon build
 
-RUN git clone https://github.com/MIT-SPARK/TEASER-plusplus.git &&\
+RUN git clone https://github.com/Skuddo/TEASER-plusplus.git &&\
     cd TEASER-plusplus &&\
+    git checkout develop &&\
     mkdir build &&\
     cd build &&\
     cmake -DTEASERPP_PYTHON_VERSION=3.10 .. &&\
