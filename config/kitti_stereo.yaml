@@ -26,7 +26,7 @@
       global_descriptor_technique: "cosplace"
       nn_checkpoint: "models/resnet18_64.pth"
       cosplace:
-        backbone: "resnet101"
+        backbone: "resnet18"
         descriptor_dim: 64
     neighbor_management:
       enable_neighbor_monitoring: true
