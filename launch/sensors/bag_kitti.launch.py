@@ -28,16 +28,16 @@ def launch_setup(context, *args, **kwargs):
                         'ros2', 'bag', 'play',
                         LaunchConfiguration('bag_file').perform(context), '-r',
                         LaunchConfiguration('rate'), '--remap',
-                        '/kitti/camera_color/left/camera_info:=' +
+                        '/stereo_camera/left/camera_info:=' +
                         LaunchConfiguration('namespace').perform(context) +
                         '/stereo_camera/left/camera_info',
-                        '/kitti/camera_color/left/image_rect_color:=' +
+                        '/stereo_camera/left/image_rect_color:=' +
                         LaunchConfiguration('namespace').perform(context) +
                         '/stereo_camera/left/image_rect_color',
-                        '/kitti/camera_color/right/camera_info:=' +
+                        '/stereo_camera/right/camera_info:=' +
                         LaunchConfiguration('namespace').perform(context) +
                         '/stereo_camera/right/camera_info',
-                        '/kitti/camera_color/right/image_rect_color:=' +
+                        '/stereo_camera/right/image_rect_color:=' +
                         LaunchConfiguration('namespace').perform(context) +
                         '/stereo_camera/right/image_rect_color',
                         '/kitti/velo/pointcloud:=' +

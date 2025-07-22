@@ -41,5 +41,5 @@ RUN cd Swarm-SLAM &&\
     cd ../.. &&\
     colcon build
 
-RUN cp Swarm-SLAM/models/*.pth Swarm-SLAM/src/cslam/models/
+RUN cp Swarm-SLAM/models/*.pth /Swarm-SLAM/install/cslam/share/cslam/models/
 

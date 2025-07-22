@@ -133,8 +133,8 @@ def launch_setup(context, *args, **kwargs):
 def generate_launch_description():
 
     return LaunchDescription([
-        DeclareLaunchArgument('max_nb_robots', default_value='5'),
-        DeclareLaunchArgument('sequence', default_value='360-09'),
+        DeclareLaunchArgument('max_nb_robots', default_value='2'),
+        DeclareLaunchArgument('sequence', default_value='00'),
         DeclareLaunchArgument('robot_delay_s', default_value='350', description="Delay between launching each robot. Ajust depending on the computing power of your machine."),
         DeclareLaunchArgument('launch_delay_s', default_value='10', description="Delay between launching the bag and the robot. In order to let the robot initialize properly and not loose the first bag data frames."),
         DeclareLaunchArgument('config_file',
@@ -142,6 +142,6 @@ def generate_launch_description():
                               description=''),
         DeclareLaunchArgument('rate', default_value='0.5'),
         DeclareLaunchArgument('enable_simulated_rendezvous', default_value='false'),
-        DeclareLaunchArgument('rendezvous_config', default_value='kitti00_5robots.config'),
+        DeclareLaunchArgument('rendezvous_config', default_value='kitti00_2robots.config'),
         OpaqueFunction(function=launch_setup)
     ])

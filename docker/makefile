@@ -39,8 +39,8 @@ attach-stereo:
 	docker exec -it swarmslam-stereo bash
 
 swarmslam-lidar:
-	docker exec -it swarmslam-lidar bash -c "ros2 launch cslam_experiments experiment_lidar.launch.py robot_id:=$(ROBOT_ID)"
+	docker exec -it swarmslam-lidar bash -c "source /opt/ros/jazzy/setup.bash; source Swarm-SLAM/install/setup.bash; ros2 launch cslam_experiments experiment_lidar.launch.py robot_id:=$(ROBOT_ID) bag_start_delay:=0.0"
 # swarmslam-mono:
-# 	docker exec -it swarmslam-mono bash -c "ros2 launch cslam_experiments experiment_mono.launch.py robot_id:=$(ROBOT_ID)"
+# 	docker exec -it swarmslam-mono bash -c "source /opt/ros/jazzy/setup.bash; source Swarm-SLAM/install/setup.bash; ros2 launch cslam_experiments experiment_mono.launch.py robot_id:=$(ROBOT_ID) bag_start_delay:=0.0"
 swarmslam-stereo:
-	docker exec -it swarmslam-stereo bash -c "ros2 launch cslam_experiments kitti_stereo.launch.py robot_id:=$(ROBOT_ID)"
+	docker exec -it swarmslam-stereo bash -c "source /opt/ros/jazzy/setup.bash; source Swarm-SLAM/install/setup.bash; ros2 launch cslam_experiments kitti_stereo.launch.py robot_id:=$(ROBOT_ID) bag_start_delay:=0.0"
