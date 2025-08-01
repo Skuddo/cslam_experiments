@@ -173,7 +173,7 @@ def launch_setup(context, *args, **kwargs):
         Node(package='cslam_experiments',
              executable='publish_stereo_calibration_s3e.py',
              name='calibration_publisher',
-             namespace=LaunchConfiguration('namespace').perform(context)+ '1',
+             namespace=LaunchConfiguration('namespace').perform(context) + '1',
              parameters=[
                         {
                             "robot_id": 1,
@@ -187,7 +187,7 @@ def launch_setup(context, *args, **kwargs):
         Node(package='cslam_experiments',
              executable='publish_stereo_calibration_s3e.py',
              name='calibration_publisher',
-             namespace=LaunchConfiguration('namespace').perform(context)+ '2',
+             namespace=LaunchConfiguration('namespace').perform(context) + '2',
              parameters=[
                         {
                             "robot_id": 2,

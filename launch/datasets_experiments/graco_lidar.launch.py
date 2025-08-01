@@ -45,7 +45,6 @@ def launch_setup(context, *args, **kwargs):
                              "config", "rendezvous", LaunchConfiguration('rendezvous_config').perform(context)),
             }.items(),
         )
-
         cslam_processes.append(proc)
 
         odom_proc = IncludeLaunchDescription(
@@ -58,8 +57,8 @@ def launch_setup(context, *args, **kwargs):
                 "robot_id": str(i),
             }.items(),
         )
-
         odom_processes.append(odom_proc)
+
 
     # Launch schedule
     schedule = []
@@ -112,26 +111,12 @@ def launch_setup(context, *args, **kwargs):
                       executable="static_transform_publisher",
                       arguments="-0.01192 -0.0197 0.1226 0 0 0 velodyne gnss".split(" "),
                       parameters=[])
-    tf_process_cam0 = Node(package="tf2_ros",
-                      executable="static_transform_publisher",
-                      arguments="0 0 0 0 0 0 camera_21239776 base_link".split(" "),
-                      parameters=[])
-    tf_process_cam1 = Node(package="tf2_ros",
-                      executable="static_transform_publisher",
-                      arguments="-0.23223 0 0 0 0 0 camera_21387977 camera_21239776".split(" "),
-                      parameters=[])
     schedule.append(PushLaunchConfigurations())
     schedule.append(tf_process)
     schedule.append(PopLaunchConfigurations())
     schedule.append(PushLaunchConfigurations())
     schedule.append(tf_process_imu)
     schedule.append(PopLaunchConfigurations())
-    # schedule.append(PushLaunchConfigurations())
-    # schedule.append(tf_process_cam0)
-    # schedule.append(PopLaunchConfigurations())
-    # schedule.append(PushLaunchConfigurations())
-    # schedule.append(tf_process_cam1)
-    # schedule.append(PopLaunchConfigurations())
 
     return schedule
 
@@ -141,7 +126,8 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument('max_nb_robots', default_value='3'),
         DeclareLaunchArgument('sequence', default_value='Ground'),
-        DeclareLaunchArgument('robot_delay_s', default_value='400', description="Delay between launching each robot. Ajust depending on the computing power of your machine."),
+        DeclareLaunchArgument('bag_start_delay', default_value='0.0'),
+        DeclareLaunchArgument('robot_delay_s', default_value='0', description="Delay between launching each robot. Ajust depending on the computing power of your machine."),
         DeclareLaunchArgument('launch_delay_s', default_value='10', description="Delay between launching the bag and the robot. In order to let the robot initialize properly and not loose the first bag data frames."),
         DeclareLaunchArgument('config_file',
                               default_value='graco_lidar.yaml',

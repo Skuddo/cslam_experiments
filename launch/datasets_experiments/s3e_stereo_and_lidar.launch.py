@@ -101,13 +101,14 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument('max_nb_robots', default_value='3'),
-        DeclareLaunchArgument('sequence', default_value='Playground'),
+        DeclareLaunchArgument('sequence', default_value='Square_1'),
         DeclareLaunchArgument('launch_delay_s', default_value='10', description="Delay between launching the bag and the robot. In order to let the robot initialize properly and not loose the first bag data frames."),
         DeclareLaunchArgument('config_file',
                               default_value='s3e_stereo_and_lidar.yaml',
                               description=''),
-        DeclareLaunchArgument('rate', default_value='0.5'),
+        DeclareLaunchArgument('rate', default_value='1.0'),
+        DeclareLaunchArgument('bag_start_delay', default_value='10'),
         DeclareLaunchArgument('enable_simulated_rendezvous', default_value='false'),
-        DeclareLaunchArgument('rendezvous_config', default_value='s3e_playground.config'),
+        DeclareLaunchArgument('rendezvous_config', default_value='s3e_square.config'),
         OpaqueFunction(function=launch_setup)
     ])

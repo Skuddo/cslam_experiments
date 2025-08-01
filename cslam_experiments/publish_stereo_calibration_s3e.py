@@ -17,8 +17,8 @@ class CalibrationPublisher(Node):
 
         self.declare_parameters(
             namespace='',
-            parameters=[('robot_id', None),
-                        ('frontend.stereo_calibration_file', None),
+            parameters=[('robot_id', 0),
+                        ('frontend.stereo_calibration_file', ''),
                         ])
         self.params = {}
         self.params['robot_id'] = self.get_parameter('robot_id').value
